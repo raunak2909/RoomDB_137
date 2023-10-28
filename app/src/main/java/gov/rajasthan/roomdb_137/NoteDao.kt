@@ -1,5 +1,6 @@
 package gov.rajasthan.roomdb_137
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -13,7 +14,7 @@ interface NoteDao {
     fun addNote(newNote: NoteTable)
 
     @Query("select * from note")
-    fun getAllNotes() : List<NoteTable>
+    fun getAllNotes() : LiveData<List<NoteTable>>
 
     @Update
     fun updateNote(updateNote: NoteTable)
